@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>鼠标移入移出</title>
+    <link rel="stylesheet" href="./css/index.css" />
+    <style>
+        .inner {
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            margin-top: 20px;
+            background-color: #000;
+            color: #fff;
+        }
+        .inner.hover:hover {
+            background-color: red;
+        }
+        .inner.active {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner hover">
+            使用css控制的鼠标移入
+        </div>
+        <div class="inner change" id="div1">
+            使用JS控制的鼠标移入
+        </div>
+    </div>
+    <script>
+        window.onload = function ()
+            {
+                var oDiv = document.getElementById("div1");
+                oDiv.onmouseover = function ()
+                {
+                    oDiv.className = "inner active"
+                };
+                oDiv.onmouseout = function ()
+                {
+                    oDiv.className = "inner"	
+                }
+            };
+
+    </script>
+</body>
+</html>

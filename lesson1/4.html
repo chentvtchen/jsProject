@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用循环将三个DIV变成红色</title>
+    <link rel="stylesheet" href="./css/index.css" />
+    <style>
+        .normal {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            background-color: #000;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <p><button>点击将DIV变成红色</button></p>
+        <div class="normal"></div>
+        <div class="normal"></div>
+        <div class="normal"></div>
+    </div>
+    <script>
+        
+        window.onload = function ()
+        {
+            var oDiv = document.getElementsByClassName("normal");
+            var oBtn = document.getElementsByTagName("button")[0];
+            oBtn.onclick = function ()
+            {
+                for(var i = 0; i < oDiv.length; i++) oDiv[i].style.backgroundColor = "red";
+            }	
+        }
+
+    </script>
+</body>
+</html>

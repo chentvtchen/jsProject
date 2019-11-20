@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>网页换肤</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/green.css" />
+
+</head>
+<body>
+    <div class="outer">
+        <ul class="skin">
+            <li class="red" id="red" title="红色"></li>
+            <li class="green" id="green" class="current" title="绿色"></li>
+            <li class="black" id="black" title="黑色"></li>
+        </ul>
+        <ul class="nav">
+            <li><a href="javascript:;">新闻</a></li>
+            <li><a href="javascript:;">娱乐</a></li>
+            <li><a href="javascript:;">体育</a></li>
+            <li><a href="javascript:;">电影</a></li>
+            <li><a href="javascript:;">音乐</a></li>
+            <li class="last"><a href="javascript:;">旅游</a></li>
+        </ul>
+    </div>
+    <script>
+        window.onload = function() {
+            var oLink = document.getElementsByTagName("link")[1];
+            var oSkin = document.getElementsByClassName("skin")[0].getElementsByTagName("li");
+            
+            for(var i = 0; i< oSkin.length; i++)
+            {		
+                oSkin[i].onclick = function ()
+                {
+                    for(var p in oSkin) oSkin[p].className = this.id;
+                    this.className += " current";
+                    console.log("./css/" + this.id + ".css");
+                    oLink['href'] = "./css/" + this.id + ".css";				
+                }	
+            }
+
+        }
+    </script>
+</body>
+</html>

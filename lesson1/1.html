@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>控制div属性</title>
+    <style>
+        .outer {
+            width:500px;
+            margin:0 auto;
+            text-align:center
+        }
+        .inner {
+            width: 100px;
+            height: 100px;
+            background-color: #000;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <input type="button" value="变宽" />
+        <input type="button" value="变高" />
+        <input type="button" value="变色" />
+        <input type="button" value="隐藏" />
+        <input type="button" value="重置" />
+        <div class="inner"></div>
+    </div>
+    <script>
+        var changeStyle = function (ele, obj) {
+            ele.style[obj.name] = obj.value
+        }
+        var oBtn = document.getElementsByTagName('input')
+        var len = oBtn.length
+        var innerDiv = document.getElementsByClassName('inner')[0]
+        // 属性列表
+        var attrList = [{
+            name: 'width',
+            value: '200px'
+        }, {
+            name: 'height',
+            value: '200px'
+        }, {
+            name: 'background',
+            value: 'red'
+        }, {
+            name: 'display',
+            value: 'none'
+        }, {
+            name: 'display',
+            value: 'block'
+        }]
+        for(var i = 0; i < len; i ++) {
+            oBtn[i].index = i
+            oBtn[i].onclick = function() {
+                // 如果选中的是最后一个，清空所有样式
+                this.index == len - 1 && (innerDiv.style.cssText = '');
+                changeStyle(innerDiv, attrList[this.index])
+            }
+        }
+    </script>
+</body>
+</html>

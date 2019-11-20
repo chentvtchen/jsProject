@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>控制div属性</title>
+    <link rel="stylesheet" href="./css/index.css" />
+    <style>
+        .container {
+            position: relative;
+            text-align: left;
+        }
+        .tips {
+            width: 200px;
+            padding: 5px 10px;
+            margin-top: 5px;
+            font-size: 12px;
+            background-color: bisque;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="container">
+            <label><input type="checkbox" />两周内自动登陆</label>
+            <div class="tips" id="tips">为了您的信息安全，请不要在网吧或公用电脑上使用此功能！</div>
+        </div>
+    </div>
+    <script>
+        window.onload = function ()
+        {
+            var oTips = document.getElementById("tips");
+            var oLabel = document.getElementsByTagName("label")[0];	
+            oLabel.onmouseover = function ()
+            {
+                oTips.style.display = "block"
+            };
+            oLabel.onmouseout = function ()
+            {
+                oTips.style.display = "none"	
+            }
+        }
+            
+    </script>
+</body>
+</html>
